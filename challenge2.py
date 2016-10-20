@@ -15,14 +15,17 @@ def main():
 
     circle1 = Circle(Point(450, 170), radius)
     circle1.setFill("red")
+    circle1.setOutline("red")
     circle1.draw(window)
 
     circle2 = Circle(Point(500, 170), radius)
     circle2.setFill("blue")
+    circle2.setOutline("blue")
     circle2.draw(window)
 
     circle3 = Circle(Point(550, 170), radius)
     circle3.setFill("yellow")
+    circle3.setOutline("yellow")
     circle3.draw(window)
 
     # add text on top of buttons
@@ -66,12 +69,14 @@ def main():
     wRect.setFill("white")
     wRect.draw(window)
 
-    # move square to the centre
-    
-    while square.getP2().getX() <= 550:
-        square.move(5, 0)
+    # checks to see if square is flat on ground and THEN square moves to centre
 
-    # show buttons
+    sheight = 100
+    if(square.getP2().getY() == 500 and 500 - square.getP1().getY() == sheight):
+        while square.getP2().getX() <= 550:
+            square.move(5, 0)
+
+    # show buttons and text
     
     wRect.undraw()
 
